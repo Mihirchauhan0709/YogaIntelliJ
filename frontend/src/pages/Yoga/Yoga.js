@@ -18,9 +18,10 @@ import { drawPoint, drawSegment } from '../../utils/helper'
 
 let skeletonColor = 'rgb(255,255,255)'
 let poseList = [
+ // Added "Select Any Pose" as the first element
   'Tree', 'Chair', 'Cobra', 'Warrior', 'Dog',
   'goddess', 'padmasana', 'plank', 'savasana', 'trikosan', 'varabhadrasana', 'warrior2'
-]
+];
 
 let interval
 

@@ -9,8 +9,9 @@
 }
 
 
-
 .dropdown-container {
+    padding-bottom: 70px;
+    padding-Top: 70px;
     display: flex;
     justify-content: center;
 }
