@@ -11,20 +11,25 @@ import Signup from './pages/Sign Up/Signup';
 import './App.css';
 import { selectUsers } from './store/usersSlice';
 import { useSelector } from 'react-redux';
+import Profile from './pages/Profile/Profile';
+import { selectCurrentUser } from './store/usersSlice';
 
 export default function App() {
-  // const user= useSelector(selectUsers);
+
+  const currentUser = useSelector(selectUsers);
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/start' element={<Yoga />} />
-        <Route path='/signin' element={<Signin />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/tutorials' element={<Tutorials />} />
-      </Routes>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/start/:email' element={<Yoga />} />
+          <Route path='/signin' element={<Signin />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/tutorials' element={<Tutorials />} />
+          <Route path='/profile/:email' element={<Profile />} />
+        </Routes>
+      </Router>
+    </Provider>
   );
 }
-

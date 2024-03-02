@@ -10,14 +10,14 @@
 .signin-main {
   width: 100%;
   max-width: 600px;
-  padding: 20px;
+  padding: 2rem;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .signin-section {
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .signin-header {
@@ -26,11 +26,13 @@
 
 .signin-heading {
   font-size: 3rem;
+  font-weight: bold;
   color: #333;
+  margin-bottom: 2rem;
 }
 
 .signin-form-wrapper {
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .signin-form {
@@ -39,41 +41,51 @@
 }
 
 .signin-form-group {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .signin-label {
   font-size: 1.5rem;
+  font-weight: bold;
   color: #555;
 }
 
 .signin-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 0.5rem;
+  border: none; /* Remove border */
+  border-bottom: 1px solid #ccc; /* Add bottom border */
   font-size: 1.5rem;
-  width: calc(100% - 22px); /* Adjusted width to center the input box */
-  margin: 0 auto; /* Added margin auto to horizontally center the input box */
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent; /* Add transparent background */
+  transition: border-bottom-color 0.3s ease; /* Add transition for bottom border */
+}
+
+.signin-input:focus {
+  outline: none; /* Remove outline on focus */
+  border-bottom-color: #000; /* Change bottom border color on focus */
 }
 
 .signin-btn {
-  padding: 10px 20px;
-  background-color: #000000;
-  color: #fff;
+  padding: 1rem 2rem;
+  background-color: #F8E8EE; /* Black background */
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 1.5rem;
   width: 100%;
+  justify-self: center;
 }
 
 .signin-btn:hover {
-  background-color: #1b1b1b;
+  background-color: #7469B6; /* Darker background on hover */
+  color: #F8E8EE;
 }
 
 .signin-footer {
-  margin-top: 20px;
+  margin-top: 2rem;
   text-align: center;
 }
 
@@ -89,4 +101,17 @@
 
 .signin-footer-link:hover {
   text-decoration: underline;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f44336;
+  margin-top: 1rem;
+}
+
+.required {
+  color: #f44336;
+  margin-left: 0.25rem;
 }

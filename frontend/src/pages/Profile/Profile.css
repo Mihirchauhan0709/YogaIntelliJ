@@ -1,0 +1,164 @@
+.profile-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .user-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+    width: 500px;
+    background-color: #ECF9FF;
+  }
+  
+  .user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-card h3{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333333;
+    
+  }
+  
+  .user-card p {
+    margin: 0.5rem 0;
+    color: #666666;
+  }
+
+
+  
+  
+
+
+
+  .pose-info {
+    margin-top: 2rem;
+  }
+  
+  .pose-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .pose-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+    background-color: #ECF9FF;
+  }
+  
+  .pose-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pose-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #000000;
+  }
+  
+  .pose-card p {
+    margin: 0.5rem 0;
+    color: #000000;
+  }
+
+  
+
+  /* .pose-card:nth-child(1) {
+    background-color: #83A2FF; 
+}
+
+.pose-card:nth-child(2){
+    background-color: #AEE2FF; 
+}
+
+.pose-card:nth-child(3) {
+    background-color: #FEFF86; 
+}
+
+.pose-card:nth-child(4) {
+    background-color: #FFACAC; 
+}
+ */
+
+
+
+
+
+.pose-card:nth-child(1):hover {
+    background-color: #83A2FF; 
+}
+
+.pose-card:nth-child(2):hover {
+    background-color: #AEE2FF; 
+}
+
+.pose-card:nth-child(3):hover {
+    background-color: #FEFF86; 
+}
+
+.pose-card:nth-child(4):hover {
+    background-color: #FFACAC; 
+}
+
+
+.pose-card:nth-child(5):hover {
+    background-color: #CCD3CA; 
+}
+
+.pose-card:nth-child(6):hover {
+    background-color: #FFB996; 
+}
+
+.pose-card:nth-child(7):hover {
+    background-color: #D0BFFF; 
+}
+
+.pose-card:nth-child(8):hover {
+    background-color: #F9F3CC; 
+}
+
+
+.pose-card:nth-child(9):hover {
+    background-color: #F7DED0; 
+}
+
+.pose-card:nth-child(10):hover {
+    background-color: #FAF3F0; 
+}
+
+.pose-card:nth-child(11):hover {
+    background-color: #EED3D9; 
+}
+
+.pose-card:nth-child(12):hover {
+    background-color: #F6FDC3; 
+}
+
+.pose-card:nth-child(13):hover {
+    background-color: #CDFAD5; 
+}

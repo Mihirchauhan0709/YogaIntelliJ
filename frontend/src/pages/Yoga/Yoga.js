@@ -13,8 +13,12 @@ import DropDown from '../../components/DropDown/DropDown';
 import { poseImages } from '../../utils/pose_images';
 import { POINTS, keypointConnections } from '../../utils/data';
 import { drawPoint, drawSegment } from '../../utils/helper'
-
-
+import { useSelector } from 'react-redux';
+import { selectUsers } from '../../store/usersSlice';
+import Signup from '../Sign Up/Signup';
+import { collection, query, where, getDocs, addDoc, doc,updateDoc } from 'firebase/firestore';
+import { firestore } from '../../Firebase/firebase-config'; 
+import { useParams } from 'react-router-dom';
 
 let skeletonColor = 'rgb(255,255,255)'
 let poseList = [
@@ -31,9 +35,12 @@ let flag = false
 
 
 function Yoga() {
+  const { email } = useParams();
+  const [userData, setUserData] = useState(null);
+  const [poseDataCreated, setPoseDataCreated] = useState(false); // State to track if pose data is created
+  const user = useSelector(selectUsers);
   const webcamRef = useRef(null)
   const canvasRef = useRef(null)
-
 
   const [startingTime, setStartingTime] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
@@ -41,8 +48,122 @@ function Yoga() {
   const [bestPerform, setBestPerform] = useState(0)
   const [currentPose, setCurrentPose] = useState('Tree')
   const [isStartPose, setIsStartPose] = useState(false)
+  const [poseData, setPoseData] = useState(null);
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userRef = collection(firestore, 'Users'); // Use firestore instead of db
+        const q = query(userRef, where('email', '==', email));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          // Assuming your user data is stored as an object in the Firestore document
+          setUserData(doc.data());
+        });
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    if (email) {
+      fetchUserData();
+    }
+  }, [email]);
   
+  useEffect(() => {
+    const createPoseData = async () => {
+      try {
+        // Construct the data to be added
+        const poseData = {
+          email: email,
+          Tree: 0, // Default values for pose counts
+          Chair: 0,
+          Cobra: 0,
+          Warrior: 0,
+          Dog: 0,
+          goddess: 0,
+          padmasana: 0,
+          plank: 0,
+          savasana: 0,
+          trikosan: 0,
+          varabhadrasana: 0,
+          warrior2: 0
+        };
+
+        // Add the document to the "Poses" collection
+        await addDoc(collection(firestore, 'Poses'), poseData);
+        setPoseDataCreated(true); // Update state to indicate pose data is created
+      } catch (error) {
+        console.error('Error creating pose data:', error);
+      }
+    };
+
+    const checkPoseDataExists = async () => {
+      try {
+        const posesRef = collection(firestore, 'Poses');
+        const q = query(posesRef, where('email', '==', email));
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+          // Pose data already exists, no need to create a new document
+          setPoseDataCreated(true);
+        } else {
+          // Pose data doesn't exist, create a new document
+          createPoseData();
+        }
+      } catch (error) {
+        console.error('Error checking pose data existence:', error);
+      }
+    };
+
+    if (userData && !poseDataCreated) {
+      checkPoseDataExists();
+    }
+  }, [userData, email, poseDataCreated]);
+
+  useEffect(() => {
+    const updatePoseCount = async () => {
+      try {
+        if (userData) {
+          const poseRef = doc(firestore, 'Poses', email);
+          const updatedPoseData = {
+            [currentPose]: bestPerform // Update the corresponding pose count with the new best performance time
+          };
+          await updateDoc(poseRef, updatedPoseData);
+        }
+      } catch (error) {
+        console.error('Error updating pose count:', error);
+      }
+    };
+
+    if (userData && bestPerform > 0) {
+      updatePoseCount();
+    }
+  }, [bestPerform, currentPose, email, userData]);
+  
+
+  useEffect(() => {
+    const fetchPoseData = async () => {
+      try {
+        const posesRef = collection(firestore, 'Poses');
+        const q = query(posesRef, where('email', '==', email));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          // Assuming there's only one document for each email
+          setPoseData(doc.data());
+          console.log('Pose Data:', doc.data()); // Log the fetched data
+        });
+      } catch (error) {
+        console.error('Error fetching pose data:', error);
+      }
+    };
+
+    if (email) {
+      fetchPoseData();
+    }
+  }, [email]);
+  
+  
+
   useEffect(() => {
     const timeDiff = (currentTime - startingTime)/1000
     if(flag) {
@@ -217,6 +338,7 @@ function Yoga() {
     
 
   if(isStartPose) {
+
     return (
       <div className="yoga-container">
         <div className="performance-container">
@@ -224,7 +346,8 @@ function Yoga() {
               <h4>Pose Time: {poseTime} s</h4>
             </div>
             <div className="pose-performance">
-              <h4>Best: {bestPerform} s</h4>
+              {/* <h4>Best: {bestPerform} s</h4> */}
+              <h4>Best: {poseData && poseData[currentPose]} s</h4>
             </div>
           </div>
         <div>
@@ -270,24 +393,31 @@ function Yoga() {
     )
   }
 
-  return (
-    <div
-      className="yoga-container"
-    >
-      <DropDown
-        poseList={poseList}
-        currentPose={currentPose}
-        setCurrentPose={setCurrentPose}
-      />
-      <Instructions
-          currentPose={currentPose}
-        />
-      <button
-          onClick={startYoga}
-          className="secondary-btn"    
-        >Start Pose</button>
-    </div>
-  )
+    if (user.currentUser) {
+      return (
+        <div
+          className="yoga-container"
+        >
+          <DropDown
+            poseList={poseList}
+            currentPose={currentPose}
+            setCurrentPose={setCurrentPose}
+          />
+          <Instructions
+              currentPose={currentPose}
+            />
+          <button
+              onClick={startYoga}
+              className="secondary-btn"    
+            >Start Pose</button>
+        </div>
+      )
+    }
+    else {
+        window.alert("Please SignUP first")
+        return <Signup />;
+      }
+
 }
 
 export default Yoga
