@@ -54,6 +54,9 @@ export default function Profile() {
   const user = useSelector(selectUsers);
 
   return (
+    <div className="profile-container black-background">
+
+
     <div className="profile-container">
       <div className="header">
         <h2>{userData ? `${userData.firstName}'s Profile` : 'Loading...'}</h2>
@@ -99,6 +102,8 @@ export default function Profile() {
           </div>
         )}
       </div>
+    </div>
+
     </div>
   );
 }

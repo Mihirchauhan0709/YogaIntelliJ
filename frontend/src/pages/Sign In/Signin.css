@@ -4,16 +4,28 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f9f9f9;
+  background: url(../../images/sign_baclground.jpg);
+  background-size: cover;
+  opacity: 0; /* Initially set the opacity to 0 */
+  animation: fade-in 1s ease-in-out forwards; /* Add the animation */
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .signin-main {
   width: 100%;
   max-width: 600px;
   padding: 2rem;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(193, 174, 247, 0.1);
 }
 
 .signin-section {
@@ -68,7 +80,7 @@
 
 .signin-btn {
   padding: 1rem 2rem;
-  background-color: #F8E8EE; /* Black background */
+  background-color: #95BDFF; /* Black background */
   color: black;
   border: none;
   border-radius: 5px;
@@ -77,10 +89,12 @@
   font-size: 1.5rem;
   width: 100%;
   justify-self: center;
+  opacity: 0; /* Initially set the opacity to 0 */
+  animation: fade-in 1s ease-in-out forwards 0.5s; /* Add the animation with a delay of 0.5s */
 }
 
 .signin-btn:hover {
-  background-color: #7469B6; /* Darker background on hover */
+  background-color: #5895f8; /* Darker background on hover */
   color: #F8E8EE;
 }
 
@@ -92,6 +106,8 @@
 .signin-footer-text {
   font-size: 1.5rem;
   color: #555;
+  opacity: 0; /* Initially set the opacity to 0 */
+  animation: fade-in 1s ease-in-out forwards 0.5s; /* Add the animation with a delay of 0.5s */
 }
 
 .signin-footer-link {

@@ -1,7 +1,9 @@
 .tutorials-container {
     width: 100vw;
     height: 100vh;
-    background-color: #ECF9FF;
+    background: url(../../images/sign_baclground.jpg);
+    background-size: cover; 
+
 }
 .tutorials-heading {
     font-size: 54px;

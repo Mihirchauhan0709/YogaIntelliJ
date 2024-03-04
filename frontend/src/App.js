@@ -13,6 +13,7 @@ import { selectUsers } from './store/usersSlice';
 import { useSelector } from 'react-redux';
 import Profile from './pages/Profile/Profile';
 import { selectCurrentUser } from './store/usersSlice';
+import Welcome from './pages/Welcome/Welcome';
 
 export default function App() {
 
@@ -21,6 +22,7 @@ export default function App() {
     <Provider store={store}>
       <Router>
         <Routes>
+          <Route path='/welcome' element={<Welcome/>} />
           <Route path='/' element={<Home />} />
           <Route path='/start/:email' element={<Yoga />} />
           <Route path='/signin' element={<Signin />} />

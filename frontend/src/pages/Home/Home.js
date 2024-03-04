@@ -108,7 +108,7 @@ export default function Home() {
     
                     <div className="testimonial-section">
                     <Carousel breakPoints={breakPoints}>
-                    <Item style={{ backgroundColor: "#E1F0DA" }} className="testimonial-item">
+                    <Item style={{ backgroundColor: "#FDF4F5" }} className="testimonial-item">
   <div className="testimonial">
     <p>{"YogaIntelliJ has transformed my yoga practice. I feel more confident and stronger with each session."}</p>
     <span>- {"Simran Jadhav"}</span>
