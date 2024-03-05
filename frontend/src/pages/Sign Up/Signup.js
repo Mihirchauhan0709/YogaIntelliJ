@@ -17,9 +17,7 @@ export default function Signup() {
   const [loginType, setLoginType] = useState('login');
   const [userCredentials, setUserCredentials] = useState({});
   const [error, setError] = useState('');
-  const [isErrorPopupVisible, setIsErrorPopupVisible] = useState(false); // New state for error popup
   const navigate = useNavigate();
-
 
   onAuthStateChanged(auth, (user) => {
     if(user){
@@ -42,30 +40,31 @@ export default function Signup() {
   function handleSignUp(e) {
     e.preventDefault();
     setError("");
-    setIsErrorPopupVisible(false); // Hide error popup before attempting sign up
-    
+  
     const { email, password, firstName, lastName, phoneNumber, birthDate } = userCredentials;
   
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        // Signed in 
         const user = userCredential.user;
   
+        // Store additional user details in Firestore
         saveDataToFirestore(firstName, lastName, phoneNumber, birthDate, user.uid)
           .then(() => {
+            // Navigate to the "/signin" page only after storing user details and checking that the component is still mounted
             if (!isUnmounted) {
               navigate("/", { replace: true });
             }
           });
       })
       .catch((error) => {
+        const errorCode = error.code;
         const errorMessage = error.message;
         if (!isUnmounted) {
           setError(errorMessage);
-          setIsErrorPopupVisible(true); // Show error popup
         }
       });
   }
-  
   
   const saveDataToFirestore = async (firstName, lastName, phoneNumber, birthDate, userId) => {
     const randomId = uuidv4();
@@ -80,7 +79,7 @@ export default function Signup() {
       birthDate: birthDate,
       userId: userId
     });
-    // alert("Document written to Database");
+    alert("Document written to Database");
   }
   
   // Cleanup function to set the isUnmounted flag when the component is unmounted
@@ -173,13 +172,13 @@ export default function Signup() {
                 <div className="signup-form-group">
                   <button onClick={(e) => {handleSignUp(e)}}type="submit" className="signup-btn">Sign up</button>
                 </div>
-{/* 
+
                 {
                   error && 
                   <div className='error'>
                     {error}
                   </div>
-                } */}
+                }
               </form>
               <div className="signup-footer">
                 <p className="signup-footer-text">Already have an account? <Link to="/signin" className="signup-footer-link">Sign in</Link></p>
@@ -187,12 +186,6 @@ export default function Signup() {
             </div>
           </section>
         </main>
-        {isErrorPopupVisible && (
-        <div className="error-popup">
-          <p className="error-message">{error}</p>
-          <button className="close-button" onClick={() => setIsErrorPopupVisible(false)}>Close</button>
-        </div>
-      )}
       </div>
     );
 }

@@ -14,7 +14,6 @@ export default function Signin() {
   const [loginType, setLoginType] = useState('login');
   const [userCredentials, setUserCredentials] = useState({});
   const [error, setError] = useState('');
-  const [isErrorPopupVisible, setIsErrorPopupVisible] = useState(false);
   const navigate = useNavigate();
 
   onAuthStateChanged(auth, (user) => {
@@ -31,18 +30,22 @@ export default function Signin() {
     
     setUserCredentials({...userCredentials, [e.target.name]: e.target.value });
   }
-  function handleLogin(e) {
-    e.preventDefault();
-    setError('');
-    signInWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
-      .then(() => {
-        navigate("/", { replace: true });
-      })
-      .catch((error) => {
-        setError(error.message);
-        setIsErrorPopupVisible(true);
-      });
-  }
+  function handleLogin(e)
+ {
+  e.preventDefault();
+    setError("")
+  signInWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
+  .then((userCredentials) => {
+    // Signed in 
+    navigate("/", { replace: true });
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+      const errorMessage = error.message;
+      setError(error.message);
+  });
+ }
     return (
       <div className="signin-container">
       {/*  Site header */}
@@ -100,7 +103,12 @@ export default function Signin() {
                       Sign in
                     </button>
                   </div>
-                
+                  {
+                  error && 
+                  <div className='error'>
+                    {error}
+                  </div>
+                }
                 </form>
     
                 <div className="signin-footer">
@@ -119,12 +127,6 @@ export default function Signin() {
           </div>
         </section>
       </main>
-      {isErrorPopupVisible && (
-        <div className="error-popup">
-          <p className="error-message">{error}</p>
-          <button className="close-button" onClick={() => setIsErrorPopupVisible(false)}>Close</button>
-        </div>
-      )}
     </div>
     
     )

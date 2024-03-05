@@ -1,10 +1,9 @@
-import React,{useState}from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faInstagram  } from '@fortawesome/free-brands-svg-icons';
-import { faFrown,faSurprise } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import './Home.css'
 import { useSelector } from 'react-redux';
 import { selectUsers } from '../../store/usersSlice';
@@ -14,7 +13,6 @@ import { auth } from '../../Firebase/firebase-config';
 import { signOut } from '@firebase/auth';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../store/usersSlice';
-import Modal from 'react-modal';
 
 const KeyFeatureCard = ({ title, description }) => {
     return (
@@ -31,42 +29,26 @@ const breakPoints = [
     { width: 1200, itemsToShow: 1 },
   ];
 
-  Modal.setAppElement('#root'); 
-
 export default function Home() {
     const dispatch = useDispatch();
-    // function handleSignOut(){
-    //     if(window.confirm('Are you sure you want to log out?')){
+    function handleSignOut(){
+        if(window.confirm('Are you sure you want to log out?')){
 
-    //         signOut(auth)
-    //     .then(() => {
-    //         dispatch(setUser(null))
-    //     })
-    //     .catch((error)=> {
-    //         console.log(error);
-    //     })
-    //     }
-    //     else{
+            signOut(auth)
+        .then(() => {
+            dispatch(setUser(null))
+        })
+        .catch((error)=> {
+            console.log(error);
+        })
+        }
+        else{
 
-    //     }
+        }
         
-    // }
-    const [showModal, setShowModal] = useState(false);
-
-    function handleSignOut() {
-        setShowModal(true);
     }
 
-    function confirmSignOut() {
-        signOut(auth)
-            .then(() => {
-                dispatch(setUser(null));
-                setShowModal(false);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
+    
 
     const user = useSelector(selectUsers);
     
@@ -86,52 +68,19 @@ export default function Home() {
                      Profile
                         </button>
                 </Link>
-                <Link to='#'>
-                        <button
+                    <Link to='#'>
+                        <button 
                             onClick={handleSignOut}
-                            className="btn btn-secondary"
+                            className="btn btn-secondary" 
                             id="about-btn"
                         >
                             Sign Out
                         </button>
                     </Link>
+                    
 
                     
                 </div>
-                <Modal
-                    isOpen={showModal}
-                    onRequestClose={() => setShowModal(false)}
-                    contentLabel="Sign Out Confirmation"
-                    style={{
-                        overlay: {
-                            backgroundColor: 'rgba(0, 0, 0, 0.5)'
-                        },
-                        content: {
-                            top: '50%',
-                            left: '50%',
-                            right: 'auto',
-                            bottom: 'auto',
-                            marginRight: '-50%',
-                            transform: 'translate(-50%, -50%)',
-                            maxWidth: '400px',
-                            padding: '20px',
-                            borderRadius: '10px',
-                            background: 'white',
-                            boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
-                            textAlign: 'center',
-                            backgroundColor: "#fff"
-                        }
-                    }}
-                >
-                   <h2>
-    Are you sure you want to log out?  
-    <FontAwesomeIcon icon={faFrown} />
-</h2>
-                    <div>
-                        <button onClick={confirmSignOut} className="btn btn-primary">Yes</button>
-                        <button onClick={() => setShowModal(false)} className="btn btn-secondary">No</button>
-                    </div>
-                </Modal>
     
                 
                 <div className="home-main">
@@ -261,20 +210,8 @@ export default function Home() {
             
         )
       } else {
-        return (
-            <div className="home-container">
-                <div className="popup">
-                    <div className="popup-content">
-                        <h2>Oh No! <FontAwesomeIcon icon={faSurprise} /> Sign Up First</h2>
-                        <div>
-                            <Link to="/signup" className="btn btn-primary">
-                                Yess
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
+        // User is not signed up or logged in, show the Signup page
+        return <Signup />;
       }
     
 
