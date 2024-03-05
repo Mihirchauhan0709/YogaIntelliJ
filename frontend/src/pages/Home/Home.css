@@ -526,3 +526,50 @@ body {
 .modal button.secondary:hover {
     background-color: #bd2130;
 }
+
+.home-container {
+    position: relative;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #95BDFF;
+    border: 1px solid #ccc;
+    border-radius: 150px; /* Rounded border */
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: 500px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+  }
+  
+  .popup-content {
+    text-align: center;
+  }
+  
+  .popup h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  
+  .popup .btn {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .popup .btn:hover {
+    background-color: #0056b3;
+  }
+  

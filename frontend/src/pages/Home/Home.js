@@ -4,7 +4,7 @@ import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram  } from '@fortawesome/free-brands-svg-icons';
-import { faFrown } from '@fortawesome/free-solid-svg-icons';
+import { faFrown,faSurprise } from '@fortawesome/free-solid-svg-icons';
 import './Home.css'
 import { useSelector } from 'react-redux';
 import { selectUsers } from '../../store/usersSlice';
@@ -261,8 +261,20 @@ export default function Home() {
             
         )
       } else {
-        // User is not signed up or logged in, show the Signup page
-        return <Signup />;
+        return (
+            <div className="home-container">
+                <div className="popup">
+                    <div className="popup-content">
+                        <h2>Oh No! <FontAwesomeIcon icon={faSurprise} /> Sign Up First</h2>
+                        <div>
+                            <Link to="/signup" className="btn btn-primary">
+                                Yess
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
       }
     
 
