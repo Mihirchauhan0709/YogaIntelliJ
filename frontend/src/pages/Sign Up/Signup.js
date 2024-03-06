@@ -79,7 +79,7 @@ export default function Signup() {
       birthDate: birthDate,
       userId: userId
     });
-    alert("Document written to Database");
+    // alert("Document written to Database");
   }
   
   // Cleanup function to set the isUnmounted flag when the component is unmounted
@@ -97,7 +97,7 @@ export default function Signup() {
             <div className="signup-form-wrapper">
               <form className="signup-form">
                 <div className="signup-form-group">
-                <label htmlFor="firstName" className="signup-label">First Name <span className="required">*</span></label>
+                <label htmlFor="firstName" className="signup-label">First Name <span className="required"></span></label>
                 <input
                   id="firstName"
                   type="text"
@@ -109,7 +109,7 @@ export default function Signup() {
                 />
               </div>
               <div className="signup-form-group">
-                <label htmlFor="lastName" className="signup-label">Last Name <span className="required">*</span></label>
+                <label htmlFor="lastName" className="signup-label">Last Name <span className="required"></span></label>
               <input
                   id="lastName"
                   type="text"
@@ -121,7 +121,7 @@ export default function Signup() {
                 />
               </div>
               <div className="signup-form-group">
-                <label htmlFor="phoneNumber" className="signup-label">Phone Number <span className="required">*</span></label>
+                <label htmlFor="phoneNumber" className="signup-label">Phone Number <span className="required"></span></label>
                 <input
                   id="phoneNumber"
                   type="tel"
@@ -133,7 +133,7 @@ export default function Signup() {
                 />
               </div>
               <div className="signup-form-group">
-                <label htmlFor="birthDate" className="signup-label">Birth Date <span className="required">*</span></label>
+                <label htmlFor="birthDate" className="signup-label">Birth Date <span className="required"></span></label>
                 <input
                   id="birthDate"
                   type="date"
@@ -144,7 +144,7 @@ export default function Signup() {
                 />
               </div>
                 <div className="signup-form-group">
-                  <label htmlFor="email" className="signup-label">Email <span className="required">*</span></label>
+                  <label htmlFor="email" className="signup-label">Email <span className="required"></span></label>
                   <input
                     id="email"
                     type="email"
@@ -157,7 +157,7 @@ export default function Signup() {
                   />
                 </div>
                 <div className="signup-form-group">
-                  <label htmlFor="password" className="signup-label">Password <span className="required">*</span></label>
+                  <label htmlFor="password" className="signup-label">Password <span className="required"></span></label>
                   <input
                     id="password"
                     type="password"

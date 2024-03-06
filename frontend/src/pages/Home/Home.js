@@ -58,7 +58,7 @@ export default function Home() {
         return (
             <div className='home-container'>
                 <div className='home-header'>
-                    <h1 className='home-heading'>YogaIntelliJ</h1>
+                    <h1 className='home-heading'>Yoga AI</h1>
                                         
                     <Link to={`/profile/${user.currentUser.email}`}>
                     <button
