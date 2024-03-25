@@ -1,11 +1,29 @@
 /* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rakkas&family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Rakkas&family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Lobster&family=Rakkas&family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Cookie&family=Lobster&family=Rakkas&family=Tenor+Sans&display=swap');
+
+.cont{
+    background-color: rgba(0, 0, 0, 0.6); 
+    height: 428.5vh;
+}
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
     background-color: #E0F4FF;
-    color: #333;
+    color: #ffffff;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    background: url(../../images/background.jpg);
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed; 
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    
 }
 
 .home-container {
@@ -13,6 +31,7 @@ body {
     max-width: 2000px;
     padding: 20px;
     width: 90%;
+
 }
 
 .home-header {
@@ -20,6 +39,9 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .home-header .btn {
@@ -35,7 +57,11 @@ body {
   .home-heading {
     font-size: 4rem;
     margin-right: 40px;
-    color: #333;
+    color: #ffffff;
+    font-family: "Tenor Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    
   }
 
 .btn {
@@ -48,8 +74,8 @@ body {
     font-weight: 600;
     display: inline-block;
     margin-right: 20px;
-    background-color: rgba(255, 255, 255, 0); /* Black background */
-    color: rgb(226, 0, 0); /* White text color */
+    background-color: rgba(204, 29, 29, 0); /* Black background */
+    color: rgb(255, 255, 255); /* White text color */
     text-transform: uppercase; /* Convert text to uppercase */
     letter-spacing: 1px; /* Add letter spacing */
     text-decoration: none; /* Remove underline */
@@ -63,13 +89,6 @@ body {
 
 
 /* Secondary Button */
-.btn-secondary {
-    background-color: #333; /* Darker background for secondary button */
-}
-
-.btn-secondary:hover {
-    background-color: #555; /* Slightly darker background on hover */
-}
 
 
 
@@ -81,20 +100,26 @@ body {
     color: white;
     text-align: center;
     padding-top: 200px;
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    
 }
 
 
 /* Main Section */
 .home-main {
-    background: url(../../images/background.jpg);
-    background-size: cover; /* Ensures the background image covers the entire container */
+    /* background: url(../../images/background.jpg);
+    background-size: cover; 
     background-position: center;
+    background-attachment: fixed;  */
     margin-top: 40px;
     flex: 1 1;
     display: flex;
     flex-direction: column;
     gap: 40px;
     height: 762px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 4); /* Text shadow */
 }
 
 .btn-section {
@@ -104,15 +129,6 @@ body {
     margin-bottom: 40px; /* Add margin for spacing */
 }
 
-.start-btn {
-    padding: 20px;
-    background-color: #95BDFF; /* Black background */
-    color: black;
-}
-
-.start-btn:hover {
-    background-color: #218838;
-}
 
 /* Info Section */
 .home-main2 {
@@ -124,17 +140,40 @@ body {
     height: 762px;
 }
 
-.info-section { 
+.info-section {
     margin-top: 40px;
-    background-color: #fff;
-     padding: 4rem 2rem; 
-     border-radius: 2rem; 
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 2rem; 
+    border-radius: 2rem; 
+    color: white; /* Text color */
+    font-size: 18px; /* Adjust font size as needed */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 4); /* Text shadow */
+}
 
 
-.info-section h2 { font-size: 3rem; margin-bottom: 2rem; color: #333; text-align: center; }
+.info-section h2 { 
+    font-size: 5rem; 
+    margin-bottom: 2rem; 
+    color: #ffffff; 
+    text-align: center;
+    padding-bottom: 30px;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
-.info-section p { font-size: 1.5rem; color: #555; max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.5; }
+.info-section p { 
+    font-size: 1.5rem; 
+    color: #ffffff; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    text-align: center; 
+    line-height: 1.5; 
+    padding-bottom: 100px;
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal; }
 
 
 
@@ -153,62 +192,83 @@ body {
 .testimonial-section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 40px;
-    padding-top: 100px;
+    padding-top: 10px;
     text-align: center;
     height: 1000px; /* Add height to the section */
     display: flex;
     justify-content: center; /* Center align items horizontally */
     align-items: center; /* Center align items vertically */
-    background-color: #fff; /* Add background color */
     border-radius: 2rem; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 50px;
 }
-
 .testimonial {
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
+  
+  h2 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-align: center; /* Center the heading text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 4); 
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 
-.testimonial p {
+}
+  .user-image {
+    width: 180px; /* Adjust the size of the image */
+    height: 180px; /* Adjust the size of the image */
+    border-radius: 50%; /* Make the image round */
+    margin-bottom: 20px; /* Add space between the image and text */
+  }
+  
+  .testimonial-text {
+    text-align: center;
+  }
+  
+  .testimonial p {
     font-size: 1.5em;
     margin-bottom: 10px;
-    padding-top: 50px;
-}
-
-.testimonial span {
-    padding-top: 50px;
-    font-size: 1.2em;
 
 
-}
-
-
-.testimonial-item {
+    font-family: "Baloo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  }
+  
+  .testimonial span {
+    font-size:2em;
+    font-family: "Cookie", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .testimonial-item {
     transition: background-color 0.3s ease;
   }
   
   .testimonial-item:hover {
     background-color: #ADD8E6; /* Change to the desired color on hover */
   }
+
+
 /* Feature Section */
 
 .feature-section {
     margin-top: 40px;
-    background-color: #fff;
     padding: 85px;
     border-radius: 2rem; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 200px;
+    padding-top: 100px;
 }
 
-
-.feature-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #333;
-    text-align: center;
-}
 
 .feature-section ul {
     list-style-type: disc;
@@ -222,10 +282,16 @@ body {
 }
 
 .feature-section h2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 4); 
+    padding-bottom: 50px;
+
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .feature-cards {
@@ -233,6 +299,7 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    
 }
 
 .feature-card {
@@ -241,17 +308,27 @@ body {
     padding: 20px;
     width: 300px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
 }
 
 .feature-card h3 {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 10px;
+    font-family: "Baloo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .feature-card p {
     font-size: 1.2rem;
     color: #555;
+
+    font-family: "Baloo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
 .feature-cards {
     display: flex;
@@ -307,7 +384,7 @@ body {
 /* Benefits Section */
 .benefits-section {
     margin-top: 40px;
-    background-color: #fff;
+    color: white;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -315,13 +392,19 @@ body {
     gap: 15px;
     border-radius: 2rem; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom:100px;
 }
 
 .benefits-section h2 {
-    font-size: 2rem;
+    font-size: 3.5rem;
     margin-bottom: 15px;
-    color: #333;
+    color: #ffffff;
     text-align: center; /* Center the heading text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 4); 
+    padding-bottom: 50px;
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .benefits-section ul {
@@ -355,6 +438,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
+    padding-bottom: 230px;
 }
 
 .benefit-card {
@@ -363,17 +447,28 @@ body {
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     flex: 0 1 calc(50% - 20px); /* Adjust card width as needed */
+    
 }
 
 .benefit-card h3 {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 10px;
+
+    font-family: "Baloo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .benefit-card p {
     font-size: 1.2rem;
     color: #555;
+
+    font-family: "Baloo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .benefit-card:hover {
@@ -416,7 +511,8 @@ body {
 /* Footer */
 /* Footer */
 .footer {
-        background-color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+
     padding: 3rem 0;
     text-align: center;
     margin-top: 40px; /* Add margin at the top */
@@ -430,6 +526,9 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal
 }
 
 .footer-links {
@@ -438,7 +537,7 @@ body {
 
 .footer-link {
     margin-right: 2rem;
-    color: #333;
+    color: #ffffff;
     text-decoration: none;
     font-size: 1.2rem;
 }
@@ -466,7 +565,7 @@ body {
 .footer-text {
     font-size: 1.2rem;
     margin-top: 2rem;
-    color: #555;
+    color: #ffffff;
 }
 
 /* Add space between sections */
@@ -487,3 +586,71 @@ body {
     padding: 0;
 }
 
+
+
+
+/* Button */
+/* start */
+
+  
+.start-btn {
+    background-color: rgb(0, 0, 0);
+    border: 1px solid #333;
+    border-radius: 40px;
+    padding: 20px 30px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    outline: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    
+  }
+  
+  .start-btn:hover {
+    background-color: #222; /* Darker background color on hover */
+    transform: scale(1.05); /* Scale the button slightly on hover */
+  }
+  
+  .start-btn:active {
+    transform: scale(0.95); /* Scale the button down slightly when clicked */
+  }
+  
+/* navbar */
+.navbar {
+    display: flex;
+    gap: 10px; /* Adjust the space between buttons */
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    
+}
+
+.nav-btn {
+    background-color: rgba(0, 0, 0, 0); /* Transparent background */
+    border: none;
+    border-radius: 40px;
+    padding: 20px 30px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    outline: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Transparent background color on hover */
+    transform: scale(1.2); /* Scale the button slightly on hover */
+}
+
+.nav-btn:active {
+    transform: scale(1); /* Scale the button down slightly when clicked */
+}

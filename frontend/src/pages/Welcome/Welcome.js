@@ -14,7 +14,7 @@ const Welcome = () => {
     return (
         <div className="welcome-page">
             {showAuthButtons && <div className="blur-background"></div>} {/* Conditionally render the blur effect */}
-            <h1 className={blurText ? "blur-text" : ""}>Welcome to Yoga AI Trainer</h1>
+            <h1 className={blurText ? "blur-text" : ""}>Welcome to YogAlign</h1>
             <p className={blurText ? "blur-text" : ""}>Train with our AI to improve your yoga poses and achieve better results.</p>
 
             <div className="btn-container">

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rakkas&family=Tenor+Sans&display=swap');
+
 .signup-container {
   display: flex;
   flex-direction: column;
@@ -5,8 +7,11 @@
   justify-content: center;
   min-height: 100vh;
   background: url(../../images/sign_baclground.jpg);
-  background-size: cover;
+  background-size: cover; /* Ensures the background image covers the entire container */
+  background-position: center;
+  background-attachment: fixed; /* Add this line */
   animation: fade-in 1s ease-in-out forwards; /* Add the animation */
+
 }
 
 @keyframes fade-in {
@@ -33,6 +38,10 @@
 
 .signup-header {
   text-align: center;
+  font-family: "Tenor Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 4); /* Text shadow */
 }
 
 .signup-heading {

@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import Profile from './pages/Profile/Profile';
 import { selectCurrentUser } from './store/usersSlice';
 import Welcome from './pages/Welcome/Welcome';
+import Contact from "./pages/Contact/Contact"
 
 export default function App() {
 
@@ -30,6 +31,7 @@ export default function App() {
           <Route path='/about' element={<About />} />
           <Route path='/tutorials' element={<Tutorials />} />
           <Route path='/profile/:email' element={<Profile />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
       </Router>
     </Provider>

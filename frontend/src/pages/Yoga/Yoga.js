@@ -340,7 +340,8 @@ function Yoga() {
   if(isStartPose) {
 
     return (
-      <div className="yoga-container">
+      <div className='cont'>
+        <div className="yoga-container">
         <div className="performance-container">
             <div className="pose-performance">
               <h4>Pose Time: {poseTime} s</h4>
@@ -387,8 +388,9 @@ function Yoga() {
         </div>
         <button
           onClick={stopPose}
-          className="secondary-btn"    
+          className="srt-btn"    
         >Stop Pose</button>
+      </div>
       </div>
     )
   }
@@ -408,7 +410,7 @@ function Yoga() {
             />
           <button
               onClick={startYoga}
-              className="secondary-btn"    
+              className="srt-btn"    
             >Start Pose</button>
         </div>
       )
