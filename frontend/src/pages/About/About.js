@@ -1,40 +1,31 @@
-import React from 'react'
-
-import './About.css'
+import React from 'react';
+import './About.css';
 
 export default function About() {
     return (
         <div className="about-container">
-            <h1 className="about-heading">About</h1>
+            
             <div className="about-main">
                 <p className="about-content">
-                    This is an realtime AI based Yoga Trainer which detects your pose how well you are doing.
-                    I created this as a personal project, and I have also deployed this project
-                    so people can use it and mainly the developers can who are learning AI can learn 
-                    from this project and make their own AI or they can also improve in this project.
-                    This is an open source project, The code is available on the GitHub - <a href="https://github.com/harshbhatt7585/YogaIntelliJ">https://github.com/harshbhatt7585/YogaIntelliJ</a>
+                    This is a real-time AI-based Yoga Trainer which detects your pose and evaluates your performance.
+                    It was developed as a group project, aiming to provide a platform for users to improve their yoga practice with AI assistance.
+                    The project is open-source and available on GitHub - <a href="">https://github.com/</a>.
                     
-                    This AI first predicts keypoints or coordinates of different parts of the body(basically where
-                    they are present in an image) and then it use another classification model to classify the poses if 
-                    someone is doing a pose and if AI detects that pose more than 95% probability and then it will notify you are 
-                    doing correctly(by making virtual skeleton green). I have used Tensorflow pretrained Movenet Model To Predict the 
-                    Keypoints and building a neural network top of that which uses these coordinates and classify a yoga pose.
+                    The AI system predicts keypoints or coordinates of different body parts in an image and utilizes a classification model to identify yoga poses.
+                    When the AI detects a pose with over 96% probability, it provides feedback by highlighting the virtual skeleton in green, indicating correct alignment.
+                    The pose detection model is based on Tensorflow's pretrained Movenet Model, and a neural network is built on top of it to classify yoga poses.
 
-                    I have trained the model in python because of tensorflowJS we can leverage the support of browser so I converted 
-                    the keras/tensorflow model to tensorflowJS.
+                    The model training was conducted using Python, and leveraging TensorFlowJS, the Keras/Tensorflow model was converted to TensorFlowJS for browser support.
                 </p>
                 <div className="developer-info">
-                    <h4>About Developer</h4>
-                    <p className="about-content">I am Harsh, I am Full Stack Developer, AI Enthusiastic, Content Creator, Tutor,
-                        I love to work with technology and love to share on my youtube channel, 
-                        I hope this project will help you. 
+                    <h4>About Developers</h4>
+                    <p className="about-content">The Yoga Trainer project was developed collaboratively by a group of developers passionate about technology and AI.
+                        The aim was to create an accessible tool for individuals to enhance their yoga practice through AI guidance.
                     </p>
-                    <h4>Contact</h4>
-                    <a href="https://www.instagram.com/codedharsh75/"><p className="about-content">Instagram</p></a>
-                    <a href="https://www.youtube.com/channel/UCiD7kslR7lKSaPGSQ-heOWg"><p  className="about-content">Youtube</p></a>
-                    <a href="https://github.com/harshbhatt7585"><p  className="about-content">GitHub</p></a>
+                    {/* <h4>Contact</h4> */}
                 </div>
             </div>
         </div>
-    )
+    );
 }
+
